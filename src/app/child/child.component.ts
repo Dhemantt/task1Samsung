@@ -13,38 +13,28 @@ export class ChildComponent implements OnInit {
 
   birthday = new Date(1998, 7, 2);
   FormBuilder: any;
-  validInput : boolean = true
-  itemForm!:FormGroup
+  itemForm!: FormGroup
   submitted = false
 
-  constructor( private formbuilder : FormBuilder) { }
+  constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
     this.itemForm = this.formbuilder.group({
-      item:['', [Validators.required, Validators.minLength(5)]]
+      item: ['', [Validators.required, Validators.minLength(5)]]
     })
 
   }
 
   addHero(newHero: string) {
-    if(newHero.length<=5)
-    {
-      // alert('please give correct item')
-    }
     if (newHero) {
       this.newItemEvent.emit(newHero);
     }
   }
-  submit(){
+  submit() {
     this.submitted = true
-   if(this.itemForm.invalid){
-    return
-   }
-   alert('success')
+    if (this.itemForm.invalid) {
+      return
+    }
   }
-
-  // addItem(){
-  //   this.newItemEvent.emit(this.item.value);
-  // }
 }

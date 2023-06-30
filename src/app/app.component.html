@@ -1,11 +1,12 @@
-<app-child  (newItemEvent)="addHero($event)" >
+<app-child (newItemEvent)="addHero($event)">
 </app-child>
 <h2>parent comp</h2>
-<ul class="itemList"><li *ngFor="let hero of heroes">{{hero}}</li></ul>
+<ul class="itemList">
+    <li *ngFor="let hero of heroes">{{hero}}</li>
+</ul>
 
 <div>
     <h4>Choose Color</h4>
-    <input style="" ejs-colorpicker type="color" id="element" [showButtons]="true" />
+    <input ejs-colorpicker type="color" id="element" [showButtons]="true" />
 
 </div>
-

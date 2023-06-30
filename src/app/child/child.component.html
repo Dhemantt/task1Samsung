@@ -1,0 +1,33 @@
+<h1>child component</h1>
+<!-- <div class="container">
+    <p style="font-size: x-large;">wish me on {{ birthday | date }}</p>
+    
+    <input class="input" #newHero (keyup.enter)="addHero(newHero.value); newHero.value=''"
+        (blur)="addHero(newHero.value); newHero.value='' ">
+        <small class="text-danger" *ngif = "!validInput">
+            Please type atleast 5 character
+        </small>
+
+    <button class="btn" type="button" (click)="addHero(newHero.value)">Add</button>
+</div> -->
+        <!-- reactive form with bootstrap -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form [formGroup]="itemForm" (ngSubmit)="submit()">
+                        <div class="form-group">
+                            <label for="item">Enter any item</label>
+                            <input formControlName="item" [ngClass]="{'is-invlaid':submitted && itemForm.controls.item.errors}" type="text" class="form-control"
+                            #newHero (keyup.enter)="addHero(newHero.value); newHero.value=''"
+                            (blur)="addHero(newHero.value); newHero.value='' ">
+                            <div *ngIf = "submitted && itemForm.controls.item.errors" class="text-danger">
+                                <div *ngIf="submitted && itemForm.controls.item.errors.required">
+                                    Item is required
+                                </div>
+                            </div>
+                            <button class="btn" type="button"(click)="addHero(newHero.value)">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
